@@ -1,0 +1,405 @@
+:root {
+  --bg: #0f1115;
+  --panel: #1a1d24;
+  --card: #21252e;
+  --card2: #272c37;
+  --text: #eef1f6;
+  --muted: #9aa3b2;
+  --accent: #ff5a1f;
+  --accent-2: #ffb020;
+  --ok: #2fbf71;
+  --warn: #ff5a5a;
+  --line: #333a47;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #05060a;
+  font-family: -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--text);
+}
+
+/* Телефонный макет */
+.phone {
+  max-width: 390px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.phone__brand {
+  padding: 14px 16px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #1a1206;
+}
+
+.phone__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px 84px;
+}
+
+.tabbar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+}
+
+.tabbar__btn {
+  flex: 1;
+  padding: 14px 0;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tabbar__btn.is-active {
+  color: var(--accent-2);
+  box-shadow: inset 0 2px 0 var(--accent-2);
+}
+
+/* Заголовки экранов */
+.screen__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.screen__head h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* Карточки и списки */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  width: 100%;
+  text-align: left;
+  color: var(--text);
+}
+
+button.card {
+  cursor: pointer;
+  transition: transform 0.05s ease, border-color 0.2s;
+}
+
+button.card:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+button.card:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.slot__time,
+.detail__time {
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.slot__track {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 4px 0 8px;
+}
+
+.slot__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.marshal {
+  color: var(--text);
+}
+
+.seats {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.seats--out {
+  color: var(--warn);
+}
+
+.slot__price {
+  margin-top: 8px;
+  font-weight: 800;
+  color: var(--accent-2);
+}
+
+/* Empty state */
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 12px;
+}
+
+.empty__title {
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.empty__hint {
+  font-size: 13px;
+}
+
+/* Detail */
+.kv {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.kv > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 6px;
+}
+
+.kv dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.kv dd {
+  margin: 0;
+  text-align: right;
+  font-size: 14px;
+}
+
+.rating-badge {
+  margin-left: 6px;
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+/* Gear */
+.gear {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 4px 0 14px;
+}
+
+.gear legend {
+  color: var(--muted);
+  font-size: 12px;
+  padding: 0 6px;
+}
+
+.gear__opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Buttons */
+.btn {
+  border: 1px solid var(--line);
+  background: var(--card2);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn--primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #1a1206;
+  border: none;
+}
+
+.btn--sm {
+  width: auto;
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: var(--accent-2);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.error-msg {
+  color: var(--warn);
+  font-size: 13px;
+  margin: 4px 0 10px;
+}
+
+/* Filter */
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+
+.filter label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: var(--muted);
+  gap: 4px;
+}
+
+.filter input,
+.input {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 8px;
+  font-size: 14px;
+}
+
+.filter__actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Bookings */
+.booking__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.booking__time {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.badge--ok {
+  background: rgba(47, 191, 113, 0.15);
+  color: var(--ok);
+}
+
+.badge--warn {
+  background: rgba(255, 90, 90, 0.15);
+  color: var(--warn);
+}
+
+.badge--muted {
+  background: rgba(154, 163, 178, 0.15);
+  color: var(--muted);
+}
+
+.reason {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+/* Stars */
+.stars {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.star {
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--line);
+  cursor: pointer;
+  padding: 0;
+}
+
+.star--on {
+  color: var(--accent-2);
+}
+
+.star:disabled {
+  cursor: default;
+}
+
+.rate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.rate-form__label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.rated {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.rated__comment {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}

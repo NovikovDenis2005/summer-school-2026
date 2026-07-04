@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "apex-api",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": ["/c", "set PATH=C:\\Program Files\\nodejs;%PATH% && npm --prefix app/server start"],
+      "port": 4000,
+      "autoPort": false
+    },
+    {
+      "name": "apex-client",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": ["/c", "set PATH=C:\\Program Files\\nodejs;%PATH% && npm --prefix app/client run dev"],
+      "port": 5173,
+      "autoPort": false
+    }
+  ]
+}
