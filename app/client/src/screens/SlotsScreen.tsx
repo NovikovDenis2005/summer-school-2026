@@ -29,7 +29,13 @@ export function SlotsScreen({ onOpen, reloadKey }: Props) {
   function applyFilter() {
     const range: { from?: string; to?: string } = {};
     if (from) range.from = new Date(from).toISOString();
-    if (to) range.to = new Date(to).toISOString();
+    if (to) {
+      // BUG-02 fix: дата из input type="date" — это полночь выбранного дня.
+      // Чтобы диапазон включал весь этот день (а не только 00:00), берём конец дня.
+      const end = new Date(to);
+      end.setHours(23, 59, 59, 999);
+      range.to = end.toISOString();
+    }
     load(range);
   }
 
